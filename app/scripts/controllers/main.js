@@ -1,10 +1,22 @@
 'use strict';
 
-angular.module('jordanandshelbyApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var app = angular.module('jordanandshelbyApp');
+
+app.controller('ScrollCtrl', function ($scope, $location, $anchorScroll) {
+	$scope.scroll = function(id){
+  	$location.hash(id);
+  	$anchorScroll();
+  };
+});
+
+app.controller('MainCtrl', function ($scope, $firebase, FIREBASE, $location, $anchorScroll) {
+  $scope.countdown = function(){
+
+  	return Math.abs(new Date() - Date.parse('2014-02-14')) / (60*60*24) / 1000;
+  };
+
+  $scope.rsvpMe = function(data){
+  	$firebase(FIREBASE).$child('rsvp').$add(data);
+  	data.submitted = true;
+  };
+});

@@ -4,15 +4,23 @@ angular.module('jordanandshelbyApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'firebase'
 ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+.config(function ($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'views/main.html',
+      controller: 'MainCtrl'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+})
+.run(function($rootScope, $location, $anchorScroll, $routeParams) {
+  $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
+    $location.hash($routeParams.scrollTo);
+    $anchorScroll();
   });
+})
+.constant('FIREBASE', new Firebase('https://jordanandshelby.firebaseio.com/'));
