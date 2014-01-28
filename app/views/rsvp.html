@@ -1,0 +1,20 @@
+<div class="container page-header">
+	<h3>Reservations</h4>
+	<table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Guests</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="rsvp in rsvps">
+        <td>{{$index}}</td>
+        <td>{{rsvp.name}}</td>
+        <td>{{rsvp.number}}</td>
+        <td>{{rsvp.guests}}</td>
+      </tr>
+  </table>
+</div>

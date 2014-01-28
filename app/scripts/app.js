@@ -13,6 +13,10 @@ angular.module('jordanandshelbyApp', [
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
+    .when('/reservations', {
+      templateUrl: 'views/rsvp.html',
+      controller: 'RsvpCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

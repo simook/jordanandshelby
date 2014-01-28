@@ -20,3 +20,8 @@ app.controller('MainCtrl', function ($scope, $firebase, FIREBASE, $location, $an
   	data.submitted = true;
   };
 });
+
+
+app.controller('RsvpCtrl', function ($scope, $firebase, FIREBASE) {
+  $scope.rsvps = $firebase(FIREBASE).$child('rsvp');
+});
