@@ -12,7 +12,7 @@ app.controller('ScrollCtrl', function ($scope, $location, $anchorScroll) {
 app.controller('MainCtrl', function ($scope, $firebase, FIREBASE, $location, $anchorScroll) {
   $scope.countdown = function(){
 
-  	return Math.abs(new Date() - Date.parse('2014-02-14')) / (60*60*24) / 1000;
+  	return Math.abs(new Date() - Date.parse('2014-02-16 5:00 PM')) / (60*60*24*1000);
   };
 
   $scope.rsvpMe = function(data){
